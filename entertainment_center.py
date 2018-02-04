@@ -1,8 +1,8 @@
 from media import Movie
 from fresh_tomatoes import open_movies_page
 
-# Empty list of movies
-movies = []
+# # Empty list of movies
+# movies = []
 
 # Create movie instances (containing title, poster url, trailer url)
 # Movie 1
