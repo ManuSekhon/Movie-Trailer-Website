@@ -5,17 +5,17 @@ from fresh_tomatoes import open_movies_page
 movies = []
 
 # Create movie instances (containing title, poster url, trailer url) from id
-ratatouille = fetchMovieData(2062)
+ratatouille = fetchMovieData("2062")
 
-the_circle = fetchMovieData(339988)
+the_circle = fetchMovieData("339988")
 
-la_la_land = fetchMovieData(313369)
+la_la_land = fetchMovieData("313369")
 
-thor_ragnarok = fetchMovieData(284053)
+thor_ragnarok = fetchMovieData("284053")
 
-beauty_beast = fetchMovieData(321612)
+beauty_beast = fetchMovieData("321612")
 
-fast_five = fetchMovieData(51497)
+fast_five = fetchMovieData("51497")
 
 # Append movies to list
 movies = [ratatouille, the_circle, la_la_land, thor_ragnarok, beauty_beast, fast_five]

@@ -29,14 +29,14 @@ def fetchMovieData(movie_id):
         webpage = urllib.request.urlopen(url)
 
         # Read data from page
-        data = webpage.read.decode("utf-8")
+        data = webpage.read().decode("utf-8")
 
         # Convert to JSON for easy parsing
-        movie_info = json.loads(data)
+        movie = json.loads(data)
 
-        return Movie(movie_info["original_title"],
-                     "https://image.tmdb.org/t/p/w500{}".format(movie_info["poster_path"]),
-                     "https://www.youtube.com/watch?v={}".format(movie_info["videos"]["results"]["0"]["key"]))
+        return Movie(movie["original_title"],
+                     "https://image.tmdb.org/t/p/w500{}".format(movie["poster_path"]),
+                     "https://www.youtube.com/watch?v={}".format(movie["videos"]["results"][0]["key"]))
 
     except:
         return None
