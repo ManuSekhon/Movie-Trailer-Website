@@ -21,7 +21,7 @@ def fetchMovieData(movie_id):
     # Also request videos for movie
     video = "append_to_response=videos"
 
-    # Final url to fetch movie data
+    # Construct url
     url = "{}/{}?api_key={}&{}".format(request, movie_id, API_KEY, video)
 
     try:
@@ -34,9 +34,12 @@ def fetchMovieData(movie_id):
         # Convert to JSON for easy parsing
         movie = json.loads(data)
 
-        return Movie(movie["original_title"],
-                     "https://image.tmdb.org/t/p/w500{}".format(movie["poster_path"]),
-                     "https://www.youtube.com/watch?v={}".format(movie["videos"]["results"][0]["key"]))
+        # Retrieve movie info
+        title = movie["original_title"]
+        poster_url = movie["poster_url"]
+        trailer_url = movie["videos"]["results"][0]["key"]
+
+        return Movie(title, poster_url, trailer_url)
 
     except:
         return None
