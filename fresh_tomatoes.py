@@ -110,6 +110,9 @@ main_page_content = '''
             <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
           </div>
         </div>
+        <div class="container">
+            <a class="navbar-right" href="https://www.themoviedb.org/">Powered By TMDB</a>
+        </div>
       </div>
     </div>
     <div class="container">
