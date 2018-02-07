@@ -53,8 +53,10 @@ API_KEY = "your_api_key"
 
 ## Add New Movies
 Search for movie you want to add in project on TMDb website. Extract id from its url and add the movie in `entertainment_center.py`.
-
-*https://www.themoviedb.org/movie*/**399035**-*the-commuter*
+```
+https://www.themoviedb.org/movie/399035-the-commuter
+```
+Movie id = *399035*
 
 
 ## Contributers
