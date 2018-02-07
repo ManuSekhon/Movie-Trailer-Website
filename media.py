@@ -1,5 +1,6 @@
 import urllib.request
 import json
+import os
 
 
 class Movie:
@@ -14,8 +15,13 @@ class Movie:
 def fetchMovieData(movie_id):
     """Gets movie data from TMDB API using movie id"""
 
-    # API key and request url for tmdb
-    API_KEY = "346f2929425925b334c2bdeb2331267f"
+    # Ensure api key is set
+    if not os.environ.get("API_KEY"):
+        raise RuntimeError("API_KEY not set")
+
+    API_KEY = os.environ.get("API_KEY")
+
+    # Tmdb api url
     request = "https://api.themoviedb.org/3/movie"
 
     # Also request videos for movie
@@ -31,12 +37,14 @@ def fetchMovieData(movie_id):
         # Read data from page
         data = webpage.read().decode("utf-8")
 
-        # Convert to JSON for easy parsing
+        # Convert to dict for easy parsing
         movie = json.loads(data)
 
         return Movie(movie["original_title"],
-                     "https://image.tmdb.org/t/p/w500{}".format(movie["poster_path"]),
-                     "https://www.youtube.com/watch?v={}".format(movie["videos"]["results"][0]["key"]))
+                     "https://image.tmdb.org/t/p/w500{}".format(
+                                            movie["poster_path"]),
+                     "https://www.youtube.com/watch?v={}".format(
+                            movie["videos"]["results"][0]["key"]))
 
     except:
         return None
